@@ -44,6 +44,7 @@ export default class ThingPage extends Component {
     const { error, thing } = this.context
     let content
     if (error) {
+      console.log(error)
       content = (error.error === `Thing doesn't exist`)
         ? <p className='red'>Thing not found</p>
         : <p className='red'>There was an error</p>

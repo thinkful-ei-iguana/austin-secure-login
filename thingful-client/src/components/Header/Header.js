@@ -6,13 +6,14 @@ import './Header.css'
 
 export default class Header extends Component {
   handleLogoutClick = () => {
+    
   }
 
   renderLogoutLink() {
     return (
       <div className='Header__logged-in'>
         <Link
-          onClick={this.handleLogoutClick}
+          onClick={TokenService.clearAuthToken}
           to='/'>
           Logout
         </Link>

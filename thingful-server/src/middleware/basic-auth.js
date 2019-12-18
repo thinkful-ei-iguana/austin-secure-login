@@ -8,7 +8,7 @@ function requireAuth(req, res, next) {
     basicToken = authToken.slice("basic ".length, authToken.length);
   }
 
-  const [tokenUserName, tokenPassword] = Buffer.from(basicTOken, "base64")
+  const [tokenUserName, tokenPassword] = Buffer.from(basicToken, "base64")
     .toString()
     .split(":");
 
