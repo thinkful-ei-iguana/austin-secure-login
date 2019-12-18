@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 import Header from '../Header/Header'
-// import PrivateRoute from '../Utils/PrivateRoute'
-// import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
+import PrivateRoute from '../Utils/PrivateRoute'
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
 import ThingListPage from '../../routes/ThingListPage/ThingListPage'
 import ThingPage from '../../routes/ThingPage/ThingPage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
@@ -27,24 +27,24 @@ class App extends Component {
         <main className='App__main'>
           {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
           <Switch>
-            <Route
+            <PrivateRoute
               exact
               path={'/'}
               component={ThingListPage}
             />
-            <Route
+            <PublicOnlyRoute
               path={'/login'}
               component={LoginPage}
             />
-            <Route
+            <PublicOnlyRoute
               path={'/register'}
               component={RegistrationPage}
             />
-            <Route
+            <PrivateRoute
               path={'/thing/:thingId'}
               component={ThingPage}
             />
-            <Route
+            <PrivateRoute
               component={NotFoundPage}
             />
           </Switch>
